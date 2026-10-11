@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FocusFlow 是一个轻量的番茄钟与今日任务管理 Demo。"
+    />
+    <title>FocusFlow · 专注每一分钟</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="FocusFlow 首页">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>FocusFlow</span>
+        </a>
+        <p class="date" id="current-date"></p>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div>
+            <p class="eyebrow">把注意力留给真正重要的事</p>
+            <h1 id="hero-title">今天，专注地<br />完成一件事。</h1>
+            <p class="hero-copy">
+              选择一个任务，启动计时器。一次只做一件事，也是一种了不起的效率。
+            </p>
+          </div>
+          <div class="quote-card" aria-label="今日提示">
+            <span class="quote-icon" aria-hidden="true">✦</span>
+            <p>小步前进，也比停在原地更接近答案。</p>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="专注工作区">
+          <article class="card timer-card">
+            <div class="card-heading">
+              <div>
+                <p class="section-label">FOCUS TIMER</p>
+                <h2>专注计时</h2>
+              </div>
+              <div class="mode-switch" role="group" aria-label="计时模式">
+                <button class="mode-button active" data-minutes="25" type="button">专注</button>
+                <button class="mode-button" data-minutes="5" type="button">休息</button>
+              </div>
+            </div>
+
+            <div class="timer" aria-live="polite">
+              <svg class="timer-ring" viewBox="0 0 220 220" aria-hidden="true">
+                <circle class="timer-track" cx="110" cy="110" r="96"></circle>
+                <circle class="timer-progress" cx="110" cy="110" r="96"></circle>
+              </svg>
+              <div class="timer-content">
+                <span id="timer-display">25:00</span>
+                <small id="timer-status">准备开始</small>
+              </div>
+            </div>
+
+            <div class="timer-actions">
+              <button class="primary-button" id="start-button" type="button">开始专注</button>
+              <button class="icon-button" id="reset-button" type="button" aria-label="重置计时器" title="重置">
+                ↻
+              </button>
+            </div>
+          </article>
+
+          <article class="card task-card">
+            <div class="card-heading task-heading">
+              <div>
+                <p class="section-label">TODAY'S PLAN</p>
+                <h2>今日任务</h2>
+              </div>
+              <span class="task-count" id="task-count">0 / 0</span>
+            </div>
+
+            <form class="task-form" id="task-form">
+              <label class="sr-only" for="task-input">新任务名称</label>
+              <input
+                id="task-input"
+                name="task"
+                type="text"
+                maxlength="60"
+                placeholder="添加一个新任务…"
+                autocomplete="off"
+                required
+              />
+              <button type="submit" aria-label="添加任务">＋</button>
+            </form>
+
+            <ul class="task-list" id="task-list" aria-label="任务列表"></ul>
+
+            <div class="empty-state" id="empty-state">
+              <span aria-hidden="true">✓</span>
+              <p>还没有任务，写下今天最重要的一件事吧。</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="stats" aria-label="今日数据">
+          <div>
+            <strong id="focus-count">0</strong>
+            <span>完成专注</span>
+          </div>
+          <div>
+            <strong id="focus-minutes">0</strong>
+            <span>累计分钟</span>
+          </div>
+          <div>
+            <strong id="completed-count">0</strong>
+            <span>完成任务</span>
+          </div>
+          <p>数据仅保存在当前浏览器中。</p>
+        </section>
+      </main>
+
+      <footer>
+        <p>FocusFlow · 为 Git 团队协作练习制作的 Demo 项目</p>
+      </footer>
+    </div>
+  </body>
+</html>
